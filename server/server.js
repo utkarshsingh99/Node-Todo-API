@@ -25,7 +25,7 @@ app.post('/todos', (req, res) => {        //resource creation
 });
 
 app.get('/todos', (req, res) => {
-  Todo.find().then((todos) => {
+  Todos.find().then((todos) => {
     res.send({todos});
   }, (e) => {
     res.status(400).send(e);
@@ -39,7 +39,7 @@ app.get('/todos/:id', (req, res) => {
     return res.send(404);
   }
 
-  Users.findById(id)
+  Todos.findById(id)
     .then((user) => {
       if(user) {
         return res.send(user);
